@@ -82,9 +82,10 @@ barplot(prop.table(tab) * 100, ylab="Proportion", col="cornflowerblue",
 #---------------------------------------------------------------------------
 ## representation d'une variable numerique----------------------------------
 hist(smp$age)
-hist(smp$age,nclass=8)# ajuster la frequence(intervalles de classes)
+hist(smp$age,breaks=6)
+hist(smp$age,nclass=10)# ajuster la frequence(intervalles de classes)
 lines(density(smp$age, na.rm=TRUE)) #representer la densité
-hist(smp$age, nclass=8, prob=TRUE) # convertir l'histogramme en histogramme de densite
+hist(smp$age, nclass=6, prob=TRUE) # convertir l'histogramme en histogramme de densite
 hist(smp$age, nclass=8, prob=TRUE,las=1) # ajuster leslabelles( ordonées)
 lines(density(smp$age, na.rm=TRUE)) #representer la densité cette fois
 
