@@ -95,3 +95,59 @@ hist(smp$age, nclass=8, prob=TRUE, col="cornflowerblue", border="white",
      xlim=c(0,100), main="", xlab="Âge (années)", ylab="Densité")
 lines(density(smp$age, na.rm=TRUE), lwd=2, col="orange")
 text(65, 0.025, paste("N =", sum(complete.cases(smp$age))), cex=1.2)
+
+
+
+
+########Quiz
+table(smp$n.enfant.cat)
+smp <- read.csv2("smp2.csv")
+
+
+#
+dim(smp[c(20,221,342,446,531),])
+
+
+complete.cases(smp[c(20,221,342,446,531),])
+sa<-smp[c(20,221,342,446,531),]
+dim(sa)
+complete.cases(sa<-smp[c(20,221,342,446,531),])
+
+sa[is.na(sa),]
+str(smp)
+
+str(n.enfant)
+
+names(smp)
+attach(smp)
+detach(smp)
+table(dep.cons)
+str(dep.cons)
+
+#7    
+enfant<-smp$n.enfant[which(dep.cons==1)]
+mean(enfant,na.rm=T)
+
+#8
+tab <- table(smp$prof,useNA="ifany")
+round((tab / sum(tab)*100),2)
+
+# alternative
+prop.table(tab)
+round(prop.table(tab), 3)
+round(prop.table(tab)*100, 2)
+
+#9
+table(duree)
+Duree<-summary(smp$duree[which(age>35)])
+Duree
+
+#10
+mean(smp$dur.interv[suicide.past == 1])
+mean(smp$dur.interv[smp$suicide.past == 1])
+mean(smp[smp$suicide.past == 1,"dur.interv"],na.rm=T)
+
+b<-smp$dur.interv[which(smp$suicide.past == 1)]
+round(mean(b,na.rm=T),2)
+length(a);length(b)
+
